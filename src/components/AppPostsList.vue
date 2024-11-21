@@ -21,5 +21,6 @@ const postStore = usePostsStore()
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 30px;
+  padding: 7px;
 }
 </style>
