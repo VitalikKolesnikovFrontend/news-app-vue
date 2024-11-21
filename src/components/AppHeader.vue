@@ -1,11 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useModalStore } from '@/pinia/stores/modal'
+
+const modalStore = useModalStore()
+
+const handle = () => {
+  modalStore.openModal()
+}
+</script>
 
 <template>
   <header class="header">
     <div class="header_logo">App News</div>
     <div class="header_auth">
-      <button class="auth_signin">Авторизация</button>
-      <button class="auth_signup">Регистрация</button>
+      <button @click="handle" class="auth_signin">Авторизация</button>
+      <button @click="handle" class="auth_signup">Регистрация</button>
     </div>
   </header>
 </template>
