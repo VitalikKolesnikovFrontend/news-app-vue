@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { posts } from '@/posts'
-import { ref } from 'vue'
 import AppPost from './AppPost.vue'
+import { usePostsStore } from '@/pinia/stores/posts'
 
-const items = ref(posts)
+const postStore = usePostsStore()
 </script>
 
 <template>
   <div class="container">
-    <li class="list" v-for="item in items" :key="item.id"><AppPost v-bind="item" /></li>
+    <li class="list" v-for="post in postStore.posts" :key="post.id"><AppPost v-bind="post" /></li>
   </div>
 </template>
 
@@ -18,7 +17,8 @@ const items = ref(posts)
 }
 .container {
   display: flex;
-  gap: 20px;
+  gap: 100px;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 30px;
 }
